@@ -71,10 +71,10 @@ function characterCards(divID) {
     $(divID).children().remove();
     for (var i = 0; i < charArray.length; i++) {
         $(divID).append("<div />");
-        $(divID + " div:last-child").addClass("card");
+        $(divID + " div:last-child").addClass("card text-black bg-danger mb-3");
         $(divID + " div:last-child").append("<img />");
         $(divID + " img:last-child").attr("id", charArray[i].name);
-        $(divID + " img:last-child").attr("class", "card-img-top");
+        $(divID + " img:last-child").attr("class", "card-img-top",);
         $(divID + " img:last-child").attr("src", charArray[i].pic);
         $(divID + " img:last-child").attr("width", 150);
         $(divID + " img:last-child").addClass("img-thumbnail");
@@ -119,7 +119,7 @@ $(document).on("click", "img", function () {
                 defender = charArray[j]; // sets defender
                 charArray.splice(j, 1);
                 defenderSelected = true;
-                $("#msg").html("Click the button to attack!");
+                $("#msg").html("Click the button to attack!",);
             }
         }
         $("#defenderDiv").append(this); // appends the selected defender to the div 
@@ -162,10 +162,11 @@ $(document).on("click", "#attackBtn", function () {
             defender.counterAttack(player);
             $("#playerHealthDiv").html("HP: " + player.healthPoints);
             $("#defenderHealthDiv").html("HP: " + defender.healthPoints);
-            if (!isAlive(defender)) {
-                $("#defenderHealthDiv").html("DEFETED!");
-                $("#playerHealthDiv").html("Enemy defeated!");
-                $("#msg").html("Pick another enemy to battle...");
+            if (!isAlive(defender)) {                
+                $("#defenderHealthDiv").html("DEFETED!");                   //took out the .html() that would cover the userPlayer Data
+            
+                // ** LOOKING WHERE TO INSERT THE ALERT COMMAND CUZ THAT LOOKS COOLER **
+            
             }
             if (!isAlive(player)) {
                 $("#playerHealthDiv").html("YOU LOST!");
@@ -185,7 +186,14 @@ $(document).on("click", "#attackBtn", function () {
             defenderSelected = false;
             if (isWinner()) {
                 $("#secondScreen").hide();
+                alert("OPPONENT DEFEATED!!")
+                alert("You have restored peace and balance to the galaxy!");
+                alert("You've done well, my young Sachuwan!");
+
                 $("#globalMsg").show();
+
+    
+                
             }
         }
     }
