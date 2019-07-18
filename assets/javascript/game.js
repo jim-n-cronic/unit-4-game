@@ -39,10 +39,10 @@ Character.prototype.counterAttack = function (Obj) {
 
 // Initialize all the characters
 function initCharacters() {
-    var luke = new Character("Luke Skywalker", 100, 10, 5, "./assets/images/luke.jpg");
-    var vader = new Character("Darth Vader", 200, 50, 30, "./assets/images/vader.jpg");
-    var obi = new Character("Obi-Wan Kenobi", 150, 15, 2, "./assets/images/obi.jpg");
-    var chew = new Character("Chewbacca", 180, 30, 12, "./assets/images/chew.jpg");
+    var luke = new Character("Luke Skywalker", 100, 10, 5, "assets/Images/skywalker_luke.jpg");
+    var vader = new Character("Darth Vader", 200, 50, 30, "assets/Images/darth-vader-i-am-your-father_1a6fda29.jpg");
+    var obi = new Character("Obi-Wan Kenobi", 150, 15, 2, "assets/Images/Ben_Kenobi.png");
+    var chew = new Character("Chewbacca", 180, 30, 12, "assets/Images/chewy.png");
     charArray.push(luke, vader, obi, chew);
 }
 
@@ -146,10 +146,10 @@ $(document).on("click", "img", function () {
         }
         updatePics("#game", "#defendersLeftDiv");
         $("#playerDiv").append(this); // appends the selected player to the div
-        $("#playerDiv").addClass("animated zoomIn");
+        $("#playerDiv").addClass("animated zoomInLeft");
         $("#playerDiv").append(player.name);
         $("#playerHealthDiv").append("HP: " + player.healthPoints);
-        $("#playerHealthDiv").addClass("animated zoomIn");
+        $("#playerHealthDiv").addClass("animated zoomInLeft");
     }
 
 });
