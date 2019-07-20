@@ -1,74 +1,89 @@
-<!DOCTYPE html>
-<hmtl>
+<!doctype html>
+<html lang="en">
+
 <head>
-    
-    <meta charset="UTF-8">
-    <title> Play Star Wars RPG!</title>
-<!--jQueryCDN-->
-<script
-  src="https://code.jquery.com/jquery-3.4.1.js"
-  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-  crossorigin="anonymous"></script>
-<!--bootStrapCDN-->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<!--style.css-->
-<link ref="stylesheet" href="style.css">
+    <title>StarWars RPG</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!-- CSS -->
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/animate.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="icon" type="image/ico" href="./assets/images/favicon.ico">
 </head>
+
 <body>
+<body background="assets/Images/NMqRHt6.png">
 
-<header>Star Wars RPG</header>
-<div class="container-fluid">
-    <div class="row-col-8">
-          
-            <!--insert image for skyWalker-->
-        <div id="skyWalker">Luke
+    <!-- the select player character screen -->
+    <div id="firstScreen" class="container-fluid animated zoomIn bounceOut">
+        <br>
+        <br>
+        <h1 style="color: white;">WHO WILL RESTORE BALANCE TO THE GALAXY?</h1>
+        <h1 style="color: white;">MAY THE FORCE BE WITH YOU, MY FRIEND.</h1>
+        <br>
+        <div id="game" class="ctr container card-deck">
         </div>
-            <!--insert image for darthVader-->
-        <div id="darthVader">Vader
-        </div>
-            <!--insert image for obiWanKenobi-->
-        <div id="obiWanKenobi">Kenobi
-        </div>
-            <!--insert image for darthSidius-->
-        <div id="darthSidius">Sidius
-        </div>       
-
     </div>
-</div>
-<div class="container-fluid">
-<h3>Your Character</h3>
-    <!--where selected character will be appended to once selected-->
-    <div id="playerSelect">
-    </div>
-</div>
-
-<div class="container-fluid">
-  
-    <div id="enemyFightArea" class="card">
-        <h5 class="card-header">Enemies Left to Defeat:</h5>
-            <div id="fightZone" class="card-body">
+    <!-- the main game screen -->
+    <div id="secondScreen" class="bg-trans container-fluid animated slideInDown">
+        <div class="row">
+            <div class="col-12 ctr">
+                Enemies remaining:
+                <div id="defendersLeftDiv"></div>
             </div>
-            <button class="btn btn-block btn-lg normal-button"> ATTACK! </button>
-            
-    </div>  
-  
-</div>      
-
-<div class="container-fluid">
-   
-    <div id="oppPlayer" class="card">
-        <h5 class="card-header">Opponent Fighter:</h5>
-            <div class="card-body">
+        </div>
+        <div class="row text-center paddingTop">
+            <div class="col-5">
+                Player:
+                <div class="container" style="width: 30%;">
+                    <div id="playerDiv"></div>
+                    <div id="playerHealthDiv"></div>
+                </div>
             </div>
+            <div class="col-2 paddingTop">
+                <!-- VS. -->
+                <img src="assets/images/Vs.png" alt="VS" width="100" />
+            </div>
+            <div class="col-5">
+                Enemy:
+                <div class="container">
+                    <div id="defenderDiv"></div>
+                    <div id="defenderHealthDiv"></div>
+                </div>
+            </div>
+        </div>
+        <!-- holds the button -->
+        <div class="row">
+            <div class="col-12 btn">
+                <div id="msg"></div>
+                <br>
+                <button type="button" name="attack" id="attackBtn" class="btn btn-dark btn-lg">ATTACK!</button>
+            </div>
+        </div>
     </div>
-    <button class="btn btn-block">Reset</button>
-</div>
+    <div class="container-fluid ">
+        <div id="globalMsg" class="animated fadeInUp">
+            <p class="shadow">
+                Thanks for playing!
+            </p>
+        </div>
+    </div>
+    
 
-<script src="game.js"></script>
 
-
-
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js " integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN "
+        crossorigin="anonymous "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js " integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q "
+        crossorigin="anonymous "></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js " integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl "
+        crossorigin="anonymous "></script>
+    <script src="./assets/javascript/game.js "></script>
 </body>
+
 </html>
